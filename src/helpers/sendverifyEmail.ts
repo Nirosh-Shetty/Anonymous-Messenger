@@ -17,13 +17,12 @@ export const sendEmail = async (
       subject: "Mystery Message Verification Cod",
       react: VerificationEmail({ username, otp: verifyCode }),
     });
-
     return {
       success: true,
       message: "verfiaction message sent",
     };
   } catch (error: any) {
-    console.log("errro is sending message", error.message);
+    console.log("error is sending message", error.message);
     return {
       success: false,
       message: "failed to send the message",
