@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 import { apiResponse } from "@/types/apiResponse";
-import VerificationEmail from "../../emails/verificationEmail";
+// import VerificationEmail from "../../emails/verificationEmail";
 const transporter = nodemailer.createTransport({
   host: "sandbox.smtp.mailtrap.io",
   port: 587,
@@ -83,7 +83,7 @@ export const mailer = async (
     };
   } catch (error: any) {
     return {
-      success: true,
+      success: false,
       message: `Unable to send Verification code: ${error.message}`,
     };
   }

@@ -2,7 +2,7 @@ import { dbConect } from "@/lib/dbConnect";
 import UserModel from "@/models/User";
 import { getServerSession } from "next-auth";
 import { User } from "next-auth";
-import { authOptions } from "../auth/[...nextauth]/options";
+import { authOptions } from "../../auth/[...nextauth]/options";
 
 export const POST = async (request: Request) => {
   try {
@@ -10,8 +10,7 @@ export const POST = async (request: Request) => {
     const user: User = session?.user;
     // console.log(session?.user);
 
-    //TODO EXPERIMENT(actual one is   if (!session || !session.user))
-    if (!session?.user) {
+    if (!session || !session.user) {
       return Response.json(
         {
           success: false,
@@ -48,8 +47,7 @@ export const POST = async (request: Request) => {
     return Response.json(
       {
         success: true,
-        message: "updated acceptingMessage status",
-        updatedUser, //TODO you shouldn't be sending whole data. This object include password aslo
+        message: `updated acceptingMessage status to ${updatedUser.isAcceptingMessages}`,
       },
       {
         status: 200,

@@ -17,11 +17,11 @@ export async function POST(req: Request) {
       console.log("username aready exists");
       return NextResponse.json(
         {
-          success: true,
+          success: false,
           message: "username is already taken",
         },
         {
-          status: 201,
+          status: 401,
         }
       );
     }
@@ -34,7 +34,7 @@ export async function POST(req: Request) {
         console.log("user aready exists");
         return NextResponse.json(
           {
-            success: true,
+            success: false,
             message: "user already exists",
           },
           {

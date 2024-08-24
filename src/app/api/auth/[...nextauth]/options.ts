@@ -42,6 +42,10 @@ export const authOptions: NextAuthOptions = {
     async jwt({ token, user }) {
       // console.log(token);
       if (user) {
+        const expiresIn = 60 * 60;
+        //  * 24 * 7;
+        token.exp = Math.floor(Date.now() / 1000) + expiresIn;
+
         token._id = user._id?.toString(); // Convert ObjectId to string
         token.isVerified = user.isVerified;
         token.isAcceptingMessages = user.isAcceptingMessages;
@@ -63,6 +67,7 @@ export const authOptions: NextAuthOptions = {
   },
   session: {
     strategy: "jwt",
+    // maxAge: 60, // 7 days
   },
 
   secret: process.env.NEXTAUTH_SECRET,
