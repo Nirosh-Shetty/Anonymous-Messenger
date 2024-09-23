@@ -54,7 +54,14 @@ export const mailer = async (
         .otp {
           font-size: 20px;
           font-weight: bold;
-          margin:auto;
+          margin: auto;
+        }
+        .link {
+          color: #007bff;
+          text-decoration: none;
+        }
+        .link:hover {
+          text-decoration: underline;
         }
       </style>
     </head>
@@ -62,12 +69,16 @@ export const mailer = async (
       <div class="container">
         <h2>Hello ${username},</h2>
         <p>Thank you for registering. Please use the following verification code to complete your registration:</p>
-        <h1 class="otp">  ${verifyCode}</h1>
+        <h1 class="otp">${verifyCode}</h1>
         <p>If you did not request this code, please ignore this email.</p>
+        <p>
+          Or <a href="http://localhost:3000/verify/${username}?code=${verifyCode}" class="link">click here to verify your email</a>.
+        </p>
       </div>
     </body>
   </html>
-  `;
+`;
+
   try {
     const mailOptions = {
       from: "niroshshetty@gmail.com",
