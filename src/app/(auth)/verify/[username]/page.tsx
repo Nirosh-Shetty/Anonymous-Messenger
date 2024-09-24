@@ -49,7 +49,7 @@ const page = () => {
         title: "Success",
         description: response.data.message,
       });
-      router.replace(`/dashboard`);
+      router.replace(`/signin`);
     } catch (error) {
       const axiosErrorr = error as AxiosError<apiResponse>;
       toast({
@@ -60,7 +60,7 @@ const page = () => {
     }
   };
   return (
-    <div className="flex justify-center items-center min-h-screen bg-black">
+    <div className="flex justify-center items-center min-h-screen bg-gray-800">
       <div className="w-full max-w-md p-7 my-7 py-14 space-y-8 bg-white rounded-lg shadow-md">
         <Form {...form}>
           <form
@@ -108,3 +108,5 @@ export default page;
 // useParams for dynamic route parameters and useSearchParams for query parameters.
 // const idd = params.idd;
 // const author = searchParams.get('author');
+
+//TODO: Feature : If the anyone tryin to direcly acces this page without doing siup should redirect to signup(just take the param and search if the user is registered or not)

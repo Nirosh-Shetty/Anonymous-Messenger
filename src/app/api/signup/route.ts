@@ -38,7 +38,7 @@ export async function POST(req: Request) {
             message: "user already exists",
           },
           {
-            status: 201,
+            status: 401,
           }
         );
       } else {

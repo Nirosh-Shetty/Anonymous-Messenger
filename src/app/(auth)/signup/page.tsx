@@ -134,6 +134,9 @@ const page = () => {
                       }`}
                     >
                       {usernameMessage}
+                      {/* TODO Fixit: gets duplicate message when errors like
+                      leser than 2 or greter than 20 charectors from both zod
+                      and shadcn form */}
                     </p>
                   )}
                 </FormItem>

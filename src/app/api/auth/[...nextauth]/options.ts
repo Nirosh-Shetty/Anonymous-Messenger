@@ -15,17 +15,17 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials: any): Promise<any> {
         try {
+          console.log(credentials);
           await dbConect();
-          console.log(credentials.email, credentials.identifier);
           const user = await UserModel.findOne({
             $or: [
-              { email: credentials.email },
+              { email: credentials.identifier },
               { username: credentials.identifier },
             ],
           });
           if (!user) throw new Error("User not found");
           if (!user.isVerified) throw new Error("user is not verified");
-          // console.log("hi");
+          console.log("hi");
           const passwordComapred = await bcrypt.compare(
             credentials.password,
             user.password
@@ -33,7 +33,7 @@ export const authOptions: NextAuthOptions = {
           if (!passwordComapred) throw new Error("Incorrect Passowrd");
           return user;
         } catch (err: any) {
-          throw new Error("error in logingIn", err);
+          throw new Error("error in loging In", err);
         }
       },
     }),
