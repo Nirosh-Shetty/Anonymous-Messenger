@@ -8,7 +8,8 @@ import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ["latin"] });
 
 import AuthProvider from "@/context/authProvider";
-import { signOut } from "next-auth/react";
+// import { signOut } from "next-auth/react";
+import Navbar from "@/components/Navbar";
 
 // export const metadata: Metadata = {
 //   title: "Create Next App",
@@ -24,17 +25,18 @@ export default function RootLayout({
     <html lang="en">
       <AuthProvider>
         <body className={inter.className}>
+          <Navbar />
           {children}
           <Toaster />
 
-          <button
+          {/* <button
             onClick={() => {
               signOut({ callbackUrl: "/signin" });
             }}
             className="text-black"
           >
             logggout
-          </button>
+          </button> */}
         </body>
       </AuthProvider>
     </html>

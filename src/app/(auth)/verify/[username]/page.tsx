@@ -109,4 +109,4 @@ export default page;
 // const idd = params.idd;
 // const author = searchParams.get('author');
 
-//TODO: Feature : If the anyone tryin to direcly acces this page without doing siup should redirect to signup(just take the param and search if the user is registered or not)
+//TODO: Feature : If the anyone tryin to direcly acces this page without doing signup should redirect to signup(just take the param and search if the user is registered or not)
