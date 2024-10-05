@@ -6,7 +6,7 @@ import { useSession, signOut } from "next-auth/react";
 import { Button } from "./ui/button";
 import { User } from "next-auth";
 
-function Navbar() {
+const page = () => {
   const { data: session } = useSession();
   const user: User = session?.user;
 
@@ -28,7 +28,7 @@ function Navbar() {
             </Button>
           </>
         ) : (
-          <Link href="/sign-in">
+          <Link href="/signin">
             <Button
               className="w-full md:w-auto bg-slate-100 text-black"
               variant={"outline"}
@@ -40,6 +40,6 @@ function Navbar() {
       </div>
     </nav>
   );
-}
+};
 
-export default Navbar;
+export default page;

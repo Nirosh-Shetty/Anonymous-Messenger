@@ -14,7 +14,7 @@ import {
   InputOTPGroup,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/components/hooks/use-toast";
 import { verifySchema } from "@/schemas/verifySchema";
 import { apiResponse } from "@/types/apiResponse";
 import { zodResolver } from "@hookform/resolvers/zod";

@@ -8,7 +8,7 @@ import axios, { AxiosError } from "axios";
 import { apiResponse } from "@/types/apiResponse";
 import { signUpSchema } from "@/schemas/signUpSchema";
 import * as z from "zod";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/components/hooks/use-toast";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import {
