@@ -10,7 +10,7 @@ import { apiResponse } from "@/types/apiResponse";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios, { AxiosError } from "axios";
 import { Loader2, RefreshCcw } from "lucide-react";
-import { User } from "next-auth";
+// import { User } from "next-auth";
 import { useSession } from "next-auth/react";
 import React, { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -32,7 +32,6 @@ const page = () => {
     setIsSwitchLoading(true);
     try {
       const response = await axios.get<apiResponse>("/api/acceptmessage");
-      console.log(response.data.isAcceptingMessages);
       setValue("acceptingMessages", response.data.isAcceptingMessages ?? false);
     } catch (error) {
       const axiosError = error as AxiosError<apiResponse>;
@@ -51,18 +50,19 @@ const page = () => {
       setIsSwitchLoading(false);
       setIsLoading(true);
       try {
-        const response = await axios.get<apiResponse>("/api/getMessages");
+        const response = await axios.get("/api/getMessages");
+        console.log("mike check");
         setMessages(response.data.messages || []);
-        if (refresh)
+        if (refresh) {
           toast({
             title: "fetched the message successfully",
           });
+        }
       } catch (error) {
+        console.error("Error fetching messages:", error);
         const axiosError = error as AxiosError<apiResponse>;
         toast({
-          title: "unable to fetch the status",
-          description: axiosError.response?.data.message,
-          variant: "destructive",
+          title: axiosError.response?.data.message,
         });
       } finally {
         setIsLoading(false);
@@ -79,7 +79,6 @@ const page = () => {
         acceptingMessage: !acceptingMessages,
       });
       setValue("acceptingMessages", !acceptingMessages);
-      console.log("hi");
     } catch (error) {
       const axiosError = error as AxiosError<apiResponse>;
       toast({

@@ -44,7 +44,6 @@ export const POST = async (request: Request) => {
         }
       );
     }
-    console.log("hqi yes");
 
     return Response.json(
       {
