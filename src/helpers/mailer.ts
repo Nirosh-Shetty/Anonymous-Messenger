@@ -6,9 +6,8 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secure: false, // Use `true` for port 465, `false` for all other ports
   auth: {
-    user: "ad5dbcda4605fc",
-    pass: "9e2908f91f1a28",
-    //TODO add this details to .ev file
+    user: process.env.MAILTRAP_USERNAME,
+    pass: process.env.MAILTRAP_PASSWORD,
   },
 });
 
