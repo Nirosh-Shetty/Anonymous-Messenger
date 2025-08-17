@@ -19,7 +19,7 @@
     "@radix-ui/react-toast": "^1.2.2",
     "@react-email/components": "^0.0.19",
     "@uidotdev/usehooks": "^2.4.1",
-    "ai": "^3.3.40",
+    "@vercel/analytics": "^1.5.0",
     "axios": "^1.7.7",
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
@@ -30,6 +30,8 @@
     "input-otp": "^1.2.4",
     "lucide-react": "^0.441.0",
     "mongoose": "^8.4.1",
+    "next": "14.2.31",
+    "next-auth": "4.24.7",
     "nodemailer": "^6.9.14",
     "react": "^18",
     "react-dom": "^18",
@@ -38,9 +40,7 @@
     "resend": "^3.3.0",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
-    "zod": "^3.23.8",
-    "next": "14.2.31",
-    "next-auth": "4.24.7"
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
