@@ -24,7 +24,7 @@ import { Input } from "@/components/ui/input";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const page = () => {
+const Page = () => {
   const [username, setusername] = useState("");
   const [checkingUsername, setCheckingUsername] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -210,4 +210,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

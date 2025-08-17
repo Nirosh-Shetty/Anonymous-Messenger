@@ -6,7 +6,7 @@ import { useSession, signOut } from "next-auth/react";
 import { Button } from "./ui/button";
 import { User } from "next-auth";
 
-const page = () => {
+const Page = () => {
   const { data: session } = useSession();
   const user: User = session?.user;
 
@@ -42,4 +42,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

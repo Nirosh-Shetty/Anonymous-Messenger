@@ -21,7 +21,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/hooks/use-toast";
 import { apiResponse } from "@/types/apiResponse";
 
-const page = () => {
+const Page = () => {
   const params = useParams();
   const { username } = params;
 
@@ -99,6 +99,6 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
 
 //TODO:check if the username/usr exists before taking it this page. take the params and fetch if user exits(you may need  a new route for this).

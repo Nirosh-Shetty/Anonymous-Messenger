@@ -23,7 +23,7 @@ import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
-const page = () => {
+const Page = () => {
   const router = useRouter();
   const { toast } = useToast();
   const params = useParams();
@@ -103,7 +103,7 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
 
 // useParams for dynamic route parameters and useSearchParams for query parameters.
 // const idd = params.idd;
