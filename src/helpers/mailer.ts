@@ -1,13 +1,25 @@
-import nodemailer from "nodemailer";
+// import nodemailer from "nodemailer";
+import { createTransport } from "nodemailer";
+
 import { apiResponse } from "@/types/apiResponse";
 // import VerificationEmail from "../../emails/verificationEmail";
-const transporter = nodemailer.createTransport({
-  host: "sandbox.smtp.mailtrap.io",
-  port: 587,
-  secure: false, // Use `true` for port 465, `false` for all other ports
+// const transporter = createTransport({
+//   host: "sandbox.smtp.mailtrap.io",
+//   port: 587,
+//   secure: false, // Use `true` for port 465, `false` for all other ports
+//   auth: {
+//     user: process.env.MAILTRAP_USERNAME,
+//     pass: process.env.MAILTRAP_PASSWORD,
+//   },
+// });
+const user = process.env.NODEMAILER_USER;
+const pass = process.env.NODEMAILER_PASS;
+console.log(user, pass);
+const transporter = createTransport({
+  service: "gmail",
   auth: {
-    user: process.env.MAILTRAP_USERNAME,
-    pass: process.env.MAILTRAP_PASSWORD,
+    user,
+    pass,
   },
 });
 
@@ -80,7 +92,7 @@ export const mailer = async (
 
   try {
     const mailOptions = {
-      from: "niroshshetty@gmail.com",
+      from: user,
       to: email,
       subject: "Verification OTP",
       html: htmlContent,

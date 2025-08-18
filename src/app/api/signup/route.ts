@@ -63,8 +63,9 @@ export async function POST(req: Request) {
       });
       await newUser.save();
     }
-
+    // console.log("hi");
     const emailResponse = await mailer(email, username, verifyCode);
+    // console.log("Email response:", emailResponse);
     if (!emailResponse.success) {
       return NextResponse.json(
         {
